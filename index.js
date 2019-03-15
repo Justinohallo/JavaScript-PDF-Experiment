@@ -1,13 +1,19 @@
 var doc = new jsPDF()
 
-const example ='This is the example text'
+// const example ='This is the example text'
 
 
 function genPDF(){
-    doc.text(`${example}`, 10, 10);
+    doc.text(`${userFirstName}`, `${firstPosition}`, `${secondPosition}`);
+    doc.text(`${userLastName}`, 10, 20);
+    doc.text(`${userBio}`, 10, 30);
+    doc.setLineWidth(0.5);
+    doc.line(0, 0, 0, 100);
     doc.save('a4.pdf');
-
 }
+
+let firstPosition = 10;
+let secondPosition = 10;
 
 let userFirstName = ''
 let userLastName = ''
@@ -18,21 +24,30 @@ let userBio = ""
 function test (e){
     const currentProfile = e.target.dataset.id
     users.map((user)=> {
-       const {  firstName, 
+    firstPosition = 40;
+    secondPosition= 40;
+       
+        if (currentProfile == user.id){
+            let { firstName, 
                 lastName,
                 bio, 
                 age } = user
-        if (currentProfile == user.id){
-            [userFirstName, 
+                userFirstName = firstName
+                userLastName = lastName
+                userBio = bio
+                userAge = age;
+
+             [
+            userFirstName,
             userLastName,
-            userID, 
-            userAge, 
-            userBio
+            userBio,
+            userAge
+            
             ] = [
-                firstName,
-                lastName,
+                firstName ,
+                lastName, 
                 bio,
-                age 
+                age
             ] 
         }
         
