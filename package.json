@@ -1,5 +1,5 @@
 {
-  "name": "jspdf",
+  "name": "pdfExperiment",
   "version": "1.0.0",
   "description": "A PDF Experiment",
   "main": "index.js",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Justinohallo/JavaScript-PDF-Experiment/issues"
   },
-  "homepage": "https://github.com/Justinohallo/JavaScript-PDF-Experiment#readme"
+  "homepage": "https://github.com/Justinohallo/JavaScript-PDF-Experiment#readme",
+  "dependencies": {
+    "jspdf": "^1.5.3"
+  }
 }
