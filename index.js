@@ -6,9 +6,13 @@ var doc = new jsPDF()
 function genPDF(){
     doc.text(`${userFirstName}`, `${firstPosition}`, `${secondPosition}`);
     doc.text(`${userLastName}`, 10, 20);
+    doc.setTextColor('#ffffff')
     doc.text(`${userBio}`, 10, 30);
-    doc.setLineWidth(0.5);
+    doc.setLineWidth(5);
     doc.line(0, 0, 0, 100);
+    doc.setLineWidth(5);
+    doc.line(0, 0, 100, 100);
+  
     doc.save('a4.pdf');
 }
 
