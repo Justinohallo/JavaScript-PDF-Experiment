@@ -4,20 +4,31 @@ var doc = new jsPDF()
 
 
 function genPDF(){
-    doc.text(`${userFirstName}`, `${firstPosition}`, `${secondPosition}`);
-    doc.text(`${userLastName}`, 10, 20);
-    doc.setTextColor('#ffffff')
-    doc.text(`${userBio}`, 10, 30);
+    doc.setDrawColor(0);
+    doc.setFillColor(`${primaryColor}`);
+    doc.rect(0, 0, 210, 20, 'FD')
     doc.setLineWidth(5);
     doc.line(0, 0, 0, 100);
     doc.setLineWidth(5);
     doc.line(0, 0, 100, 100);
-  
-    doc.save('a4.pdf');
+    doc.setFillColor(`#447543`);
+    doc.rect(40, 20, 100, 20, 'FD')
+    doc.setTextColor('#ffffff')
+    doc.text(`Welcome to Barcelona`, 40, 20);
+    doc.text(`${userFirstName}`, `${firstPosition}`, `${secondPosition}`);
+    doc.text(`${userLastName}`, 10, 20);
+    doc.setTextColor('#ffffff')
+    doc.text(`${userBio}`, 10, 30);
+    doc.output('dataurlnewwindow')
+    // doc.save('a4.pdf');
 }
 
 let firstPosition = 10;
 let secondPosition = 10;
+
+let primaryColor = '#ffffff';
+
+
 
 let userFirstName = ''
 let userLastName = ''
